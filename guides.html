@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guides | VibeCheck</title>
+  <meta name="description" content="Six beginner guides: HTML, CSS, layout, clean code, AI-assisted development, and a publishing checklist.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">VibeCheck</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="lab.html">Lab</a></li>
+          <li><a href="guides.html" aria-current="page">Guides</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-intro">
+      <div class="container page-intro-grid">
+        <div class="page-intro-text">
+        <p class="label">Guides</p>
+        <h1>The fundamentals, explained plainly.</h1>
+        <p class="lead">
+          Six short guides. Each one explains the idea, the mistake beginners usually make,
+          why it happens, the correct approach, an example, and one thing to remember.
+        </p>
+      </div>
+        <img class="intro-visual" src="images/intro-guides.svg" alt="" width="480" height="320">
+      </div>
+    </section>
+
+    <div class="container">
+      <ol class="guide-index" aria-label="Guide index">
+        <li><a href="#html-fundamentals"><span class="number">01</span> HTML Fundamentals</a></li>
+        <li><a href="#css-foundations"><span class="number">02</span> CSS Foundations</a></li>
+        <li><a href="#layout-responsiveness"><span class="number">03</span> Layout and Responsiveness</a></li>
+        <li><a href="#clean-code"><span class="number">04</span> Clean Code</a></li>
+        <li><a href="#ai-assisted-development"><span class="number">05</span> AI-Assisted Development</a></li>
+        <li><a href="#publishing-checklist"><span class="number">06</span> Publishing Checklist</a></li>
+      </ol>
+    </div>
+
+    <div class="container">
+
+      <!-- Guide 1 -->
+      <section class="split" id="html-fundamentals">
+        <div class="guide-title">
+          <span class="number">01</span>
+          <h2>HTML Fundamentals</h2>
+        </div>
+        <div class="split-body guide-body">
+          <h3>The concept</h3>
+          <p>HTML describes what content <em>is</em>. A heading is a heading, a list is a list, a navigation is a navigation. Browsers, search engines, and screen readers all depend on this meaning.</p>
+          <h3>Common beginner mistake</h3>
+          <p>Using <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> for everything, and picking heading levels by how big they look.</p>
+          <h3>Why it happens</h3>
+          <p>After styling, a div looks identical to a real heading, so the problem is invisible on screen. Generated code is often full of divs too.</p>
+          <h3>The correct approach</h3>
+          <p>Choose the element that matches the meaning: <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>h1</code> to <code>h6</code> in order, <code>ul</code> for lists, and <code>alt</code> text on every image. Use one <code>h1</code> per page.</p>
+          <h3>Example</h3>
+          <figure class="code-panel">
+            <div class="code-panel-bar">before.html</div>
+<pre><code>&lt;div class="title"&gt;Latest articles&lt;/div&gt;
+&lt;div class="item"&gt;Article one&lt;/div&gt;
+&lt;div class="item"&gt;Article two&lt;/div&gt;</code></pre>
+          </figure>
+          <figure class="code-panel">
+            <div class="code-panel-bar">after.html</div>
+<pre><code>&lt;h2&gt;Latest articles&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Article one&lt;/li&gt;
+  &lt;li&gt;Article two&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </figure>
+          <aside class="callout">
+            <p class="label">Takeaway</p>
+            <p>Pick HTML elements for what the content means, then use CSS for how it looks.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Guide 2 -->
+      <section class="split" id="css-foundations">
+        <div class="guide-title">
+          <span class="number">02</span>
+          <h2>CSS Foundations</h2>
+        </div>
+        <div class="split-body guide-body">
+          <h3>The concept</h3>
+          <p>CSS chooses elements with selectors and sets their properties: colour, font, spacing, and layout. Every element is also a box made of content, padding, border, and margin. This is the box model.</p>
+          <h3>Common beginner mistake</h3>
+          <p>Typing the same colours and sizes everywhere, and adding <code>!important</code> whenever a style does not apply.</p>
+          <h3>Why it happens</h3>
+          <p>Quick fixes pile up. When two rules disagree, <code>!important</code> feels like the fastest way to make one win.</p>
+          <h3>The correct approach</h3>
+          <p>Style with classes, store repeated values in CSS variables, use a small spacing scale (8, 16, 24, 32px), and add <code>box-sizing: border-box</code> so widths include padding.</p>
+          <h3>Example</h3>
+          <figure class="code-panel">
+            <div class="code-panel-bar">style.css</div>
+<pre><code>:root {
+  --black: #111111;
+  --space-2: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.button {
+  color: var(--black);
+  padding: var(--space-2);
+}</code></pre>
+          </figure>
+          <aside class="callout">
+            <p class="label">Takeaway</p>
+            <p>Define a value once, reuse it everywhere, and avoid fighting your own CSS.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Guide 3 -->
+      <section class="split" id="layout-responsiveness">
+        <div class="guide-title">
+          <span class="number">03</span>
+          <h2>Layout and Responsiveness</h2>
+        </div>
+        <div class="split-body guide-body">
+          <h3>The concept</h3>
+          <p>Flexbox arranges items in one row or column. Grid arranges items in rows and columns together. Media queries change the layout when the screen gets wider or narrower.</p>
+          <h3>Common beginner mistake</h3>
+          <p>Fixed pixel widths, absolute positioning, and forgetting the viewport meta tag.</p>
+          <h3>Why it happens</h3>
+          <p>The page looks right on your own screen, so you assume it looks right everywhere.</p>
+          <h3>The correct approach</h3>
+          <p>Design for the phone first. Use <code>max-width</code> instead of <code>width</code>, let Flexbox or Grid place things, and add media queries with <code>min-width</code> for larger screens. Always include the viewport tag in the <code>&lt;head&gt;</code>.</p>
+          <h3>Example</h3>
+          <figure class="code-panel">
+            <div class="code-panel-bar">style.css</div>
+<pre><code>.cards {
+  display: grid;
+  gap: 24px;               /* one column on phones */
+}
+
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);   /* two columns on tablets */
+  }
+}</code></pre>
+          </figure>
+          <aside class="callout">
+            <p class="label">Takeaway</p>
+            <p>Start small, then add layout as the screen grows. Test at 375px, 768px, and 1200px.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Guide 4 -->
+      <section class="split" id="clean-code">
+        <div class="guide-title">
+          <span class="number">04</span>
+          <h2>Clean Code</h2>
+        </div>
+        <div class="split-body guide-body">
+          <h3>The concept</h3>
+          <p>Clean code is code another person, or you in three months, can read and change without a struggle.</p>
+          <h3>Common beginner mistake</h3>
+          <p>Vague class names like <code>box2</code> or <code>red-text</code>, messy indentation, and leftover unused code.</p>
+          <h3>Why it happens</h3>
+          <p>When rushing, any name that works feels good enough. Generic generated code often uses generic names.</p>
+          <h3>The correct approach</h3>
+          <p>Name things by purpose, indent consistently, group CSS into labelled sections, write comments that explain <em>why</em>, and delete code you do not use.</p>
+          <h3>Example</h3>
+          <figure class="code-panel">
+            <div class="code-panel-bar">before.css</div>
+<pre><code>.box2 { color: red; }
+.red-text { margin: 13px; }</code></pre>
+          </figure>
+          <figure class="code-panel">
+            <div class="code-panel-bar">after.css</div>
+<pre><code>/* Form errors */
+.error-message {
+  color: #b00020;
+  margin-top: 8px;
+}</code></pre>
+          </figure>
+          <aside class="callout">
+            <p class="label">Takeaway</p>
+            <p>A good name explains what something is for, not what it looks like today.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Guide 5 -->
+      <section class="split" id="ai-assisted-development">
+        <div class="guide-title">
+          <span class="number">05</span>
+          <h2>AI-Assisted Development</h2>
+        </div>
+        <div class="split-body guide-body">
+          <h3>The concept</h3>
+          <p>AI is a fast assistant, not a replacement for understanding. You stay responsible for what you publish.</p>
+          <h3>Common beginner mistake</h3>
+          <p>Pasting generated code without reading it, and asking for a whole website in one go.</p>
+          <h3>Why it happens</h3>
+          <p>The output looks polished and confident, so it feels finished even when it is not.</p>
+          <h3>The correct approach</h3>
+          <p>Ask for small pieces. Ask the AI to explain each line. Read it, run it, try to break it by resizing and using the keyboard, and then change something yourself to prove you understand it.</p>
+          <h3>Example</h3>
+          <figure class="code-panel">
+            <div class="code-panel-bar">prompts.txt</div>
+<pre><code>Weak:   Make me a website.
+
+Better: Explain what "display: flex" does, then show me
+        how to place three buttons in a row with a gap
+        between them. Keep it beginner-friendly.</code></pre>
+          </figure>
+          <aside class="callout">
+            <p class="label">Takeaway</p>
+            <p>Use AI to learn faster, not to skip learning.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Guide 6 -->
+      <section class="split" id="publishing-checklist">
+        <div class="guide-title">
+          <span class="number">06</span>
+          <h2>Publishing Checklist</h2>
+        </div>
+        <div class="split-body guide-body">
+          <h3>The concept</h3>
+          <p>A final set of checks before real people see your site. It catches the small mistakes that make a project look unfinished.</p>
+          <h3>Common beginner mistake</h3>
+          <p>Publishing after testing on only one screen, leaving placeholder text, or shipping broken links.</p>
+          <h3>Why it happens</h3>
+          <p>Deadlines. By the end of a project you stop seeing your own mistakes.</p>
+          <h3>The correct approach</h3>
+          <p>Work through the same short list every time. Tick the boxes below as you go; they reset when you reload the page.</p>
+          <h3>Example</h3>
+          <ul class="checklist">
+            <li><label><input type="checkbox"> Each page has its own descriptive title</label></li>
+            <li><label><input type="checkbox"> Every link opens a real page</label></li>
+            <li><label><input type="checkbox"> Every image has alt text</label></li>
+            <li><label><input type="checkbox"> Tested at 375px, 768px, and 1200px</label></li>
+            <li><label><input type="checkbox"> You can tab through all links and see where you are</label></li>
+            <li><label><input type="checkbox"> HTML passes the W3C validator</label></li>
+          </ul>
+          <aside class="callout">
+            <p class="label">Takeaway</p>
+            <p>A checklist is cheaper than an embarrassing mistake. The full version is in our article, Before You Publish.</p>
+          </aside>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="section-last"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="logo" href="index.html">VibeCheck</a>
+          <p>Build with AI. Think like a developer.</p>
+        </div>
+        <nav aria-label="Footer pages">
+          <h3 class="footer-title">Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="lab.html">Lab</a></li>
+            <li><a href="guides.html">Guides</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Footer categories">
+          <h3 class="footer-title">Categories</h3>
+          <ul>
+            <li><a href="explore.html">Design Mistakes</a></li>
+            <li><a href="explore.html">Coding Mistakes</a></li>
+            <li><a href="explore.html">AI-Assisted Development</a></li>
+            <li><a href="explore.html">Before You Publish</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-bottom">&copy; 2026 VibeCheck. A university web development project.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
